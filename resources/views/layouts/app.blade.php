@@ -22,8 +22,8 @@
                 <div class="hidden md:flex space-x-8">
                     <a href="/" class="text-gray-900 hover:text-gray-600 px-3 py-2 text-sm font-medium">Stories</a>
                     <a href="#" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Featured</a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Most Viewed</a>
                     <a href="#" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Top Products</a>
+                    <a href="{{ url('/login') }}" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Login / SignUp</a>
                 </div>
                 
                 <!-- Mobile menu button -->

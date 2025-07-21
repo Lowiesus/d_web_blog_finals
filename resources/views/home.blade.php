@@ -39,8 +39,8 @@
                 <div class="lg:col-span-2">
                     <article class="relative overflow-hidden rounded-lg bg-white shadow-lg">
                         <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80" 
-                             alt="Featured Story" 
-                             class="w-full h-96 object-cover">
+                            alt="Featured Story"
+                            class="w-full h-96 object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                         <div class="absolute bottom-0 left-0 p-8 text-white">
                             <span class="inline-block bg-white/20 text-white px-3 py-1 rounded-full text-sm font-medium mb-3">
@@ -53,7 +53,7 @@
                                 Discover how Nike is pioneering eco-friendly materials and manufacturing processes to create performance gear that doesn't compromise on quality or the environment.
                             </p>
                             <a href="#" class="inline-flex items-center text-white hover:text-gray-300">
-                                Read More 
+                                Read More
                                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
@@ -67,8 +67,8 @@
                     <article class="bg-white rounded-lg shadow-md overflow-hidden h-32">
                         <div class="flex h-full">
                             <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Story" 
-                                 class="w-32 h-full object-cover flex-shrink-0">
+                                alt="Story" 
+                                class="w-32 h-full object-cover flex-shrink-0">
                             <div class="p-4 flex flex-col justify-center flex-1">
                                 <div>
                                     <span class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium mb-1">
@@ -88,8 +88,8 @@
                     <article class="bg-white rounded-lg shadow-md overflow-hidden h-32">
                         <div class="flex h-full">
                             <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Story" 
-                                 class="w-32 h-full object-cover flex-shrink-0">
+                                alt="Story"
+                                class="w-32 h-full object-cover flex-shrink-0">
                             <div class="p-4 flex flex-col justify-center flex-1">
                                 <div>
                                     <span class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium mb-1">
@@ -111,8 +111,8 @@
                     <article class="bg-white rounded-lg shadow-md overflow-hidden h-32">
                         <div class="flex h-full">
                             <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Story" 
-                                 class="w-32 h-full object-cover flex-shrink-0">
+                                alt="Story"
+                                class="w-32 h-full object-cover flex-shrink-0">
                             <div class="p-4 flex flex-col justify-center flex-1">
                                 <div>
                                     <span class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium mb-1">
@@ -132,8 +132,8 @@
                     <article class="bg-white rounded-lg shadow-md overflow-hidden h-32">
                         <div class="flex h-full">
                             <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 alt="Story" 
-                                 class="w-32 h-full object-cover flex-shrink-0">
+                                alt="Story" 
+                                class="w-32 h-full object-cover flex-shrink-0">
                             <div class="p-4 flex flex-col justify-center flex-1">
                                 <div>
                                     <span class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium mb-1">
@@ -162,10 +162,10 @@
                 Get the latest stories and updates delivered to your inbox.
             </p>
             <form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input type="email" 
-                       placeholder="Enter your email" 
-                       class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent">
-                <button type="submit" 
+                <input type="email"
+                    placeholder="Enter your email"
+                    class="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-transparent">
+                <button type="submit"
                         class="bg-black text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors">
                     Subscribe
                 </button>
