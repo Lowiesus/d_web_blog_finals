@@ -31,12 +31,6 @@
                 </div>
             @endif
         </form>
-        <div class="mt-4 text-center">
-            <a href="{{ url('signup') }}"
-                class="inline-block bg-gray-200 text-black px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 transition-colors">
-                Sign Up
-            </a>
-        </div>
         <div class="mt-6 text-center text-gray-400 text-xs">This is a UI clone for educational purposes.</div>
     </div>
 </div>

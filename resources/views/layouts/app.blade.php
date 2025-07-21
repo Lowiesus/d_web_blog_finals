@@ -26,8 +26,8 @@
                     
                     <!-- Auth Buttons -->
                     <div class="flex items-center space-x-4 ml-8">
-                        <a href="#" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Login</a>
-                        <a href="#" class="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">Sign Up</a>
+                        <a href="{{ url('/login') }}" class="text-gray-500 hover:text-gray-900 px-3 py-2 text-sm font-medium">Login</a>
+                        <a href="{{ url('/signup') }}" class="bg-black text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-800 transition-colors">Sign Up</a>
                     </div>
                 </div>
                 
