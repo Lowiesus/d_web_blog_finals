@@ -2,6 +2,13 @@
 
 @section('title', 'Nike Stories - Home')
 
+<script>
+    function toggleStoryModal() {
+        const modal = document.getElementById('storyModal');
+        modal.classList.toggle('hidden');
+    }
+</script>
+
 @section('content')
     <!-- Hero Section -->
     <section class="relative bg-gray-900 text-white">
@@ -53,7 +60,6 @@
                                 Discover how Nike is pioneering eco-friendly materials and manufacturing processes to create performance gear that doesn't compromise on quality or the environment.
                             </p>
                             <a href="#" class="inline-flex items-center text-white hover:text-gray-300">
-                                Read More
                                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                                 </svg>
@@ -61,6 +67,37 @@
                         </div>
                     </article>
                 </div>
+
+                <!-- User-Submitted Stories -->
+            @if($stories->count())
+                <section class="py-16 bg-gray-100">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Latest Community Stories</h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            @foreach($stories as $story)
+                                <div class="bg-white shadow-xl rounded-3xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+                                    @if($story->image)
+                                        <img src="{{ asset('storage/' . $story->image) }}" alt="Story Image"
+                                            class="w-full h-72 object-cover">
+                                    @endif
+                                    <div class="p-6 md:p-8">
+                                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                                            {{ $story->title }}
+                                        </h3>
+                                        <p class="text-gray-800 text-base mb-4 whitespace-pre-line">
+                                            {{ $story->content }}
+                                        </p>
+                                        <div class="text-sm text-gray-500">
+                                            By {{ $story->user->name ?? 'Anonymous' }} • {{ $story->created_at->format('M d, Y') }}
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </section>
+            @endif
 
                 <!-- Secondary Featured Stories -->
                 <div class="space-y-6">
@@ -172,4 +209,40 @@
             </form>
         </div>
     </section>
+    <!-- Story Modal -->
+<div id="storyModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative">
+        <button onclick="toggleStoryModal()" class="absolute top-2 right-2 text-gray-500 hover:text-black text-xl">&times;</button>
+        <h2 class="text-xl font-bold mb-4">Add Your Story</h2>
+        <form method="POST" action="{{ route('stories.store') }}" enctype="multipart/form-data">
+    @csrf
+    <div class="mb-4">
+        <label class="block font-semibold mb-1" for="title">Title</label>
+        <input type="text" id="title" name="title" class="w-full border border-gray-300 rounded px-3 py-2" required>
+    </div>
+
+    <div class="mb-4">
+        <label class="block font-semibold mb-1" for="content">Your Story</label>
+        <textarea id="content" name="content" rows="5" class="w-full border border-gray-300 rounded px-3 py-2" required></textarea>
+    </div>
+
+    <div class="mb-4">
+        <label class="block font-semibold mb-1" for="image">Upload Image (optional)</label>
+        <input type="file" id="image" name="image" accept="image/*" class="w-full border border-gray-300 rounded px-3 py-2">
+    </div>
+
+    <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">
+        Submit Story
+    </button>
+</form>
+    </div>
+</div>
 @endsection
+
+@auth
+    <div class="fixed bottom-6 right-6">
+        <button onclick="toggleStoryModal()" class="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all shadow-lg">
+            + Add Your Story
+        </button>
+    </div>
+@endauth
