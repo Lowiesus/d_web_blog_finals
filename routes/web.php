@@ -19,11 +19,13 @@ Route::get('/login', function () {
     return view('login');
 });
 
+Route::get('/stories/{story_id}', [StoryController::class, 'show'])->name('stories.show');
+
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
 Route::get('/signup', function () {
     if (Auth::check()) {
-        return redirect('/home');
+        return redirect('/');
     }
     return view('signup');
 });
@@ -36,11 +38,7 @@ Route::post('/signup', [RegisterController::class, 'signup'])->name('signup');
 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
-Route::get('/featured', function () {
-    // You can return a view or redirect as needed
-    return view('home'); // or create a separate featured.blade.php if you want
-})->name('featured');
+Route::get('/featured', [StoryController::class, 'featured'])->name('featured');
 
 Route::get('/products/top', function () {
     // You can return a view or placeholder for now

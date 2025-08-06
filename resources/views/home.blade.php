@@ -27,7 +27,8 @@
             </div>
         </div>
         <!-- Hero Background Image -->
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ asset('images/photo-1452573992436-6d508f200b30.avif') }}')"></div>
+        <!-- Original Unsplash: https://unsplash.com/photos/two-persons-riding-on-bicycles-SJWPKMb9u-k -->
     </section>
 
     <!-- Featured Section -->
@@ -45,7 +46,7 @@
                 <!-- Main Featured Story -->
                 <div class="lg:col-span-2">
                     <article class="relative overflow-hidden rounded-lg bg-white shadow-lg">
-                        <img src="https://images.unsplash.com/photo-1554284126-aa88f22d8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=2068&q=80" 
+                        <img src="images/photo-1453169753818-2feab4b4246d.avif" 
                             alt="Featured Story"
                             class="w-full h-96 object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -68,36 +69,8 @@
                     </article>
                 </div>
 
-                <!-- User-Submitted Stories -->
-            @if($stories->count())
-                <section class="py-16 bg-gray-100">
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Latest Community Stories</h2>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                            @foreach($stories as $story)
-                                <div class="bg-white shadow-xl rounded-3xl overflow-hidden hover:shadow-2xl transition-shadow duration-300">
-                                    @if($story->image)
-                                        <img src="{{ asset('storage/' . $story->image) }}" alt="Story Image"
-                                            class="w-full h-72 object-cover">
-                                    @endif
-                                    <div class="p-6 md:p-8">
-                                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
-                                            {{ $story->title }}
-                                        </h3>
-                                        <p class="text-gray-800 text-base mb-4 whitespace-pre-line">
-                                            {{ $story->content }}
-                                        </p>
-                                        <div class="text-sm text-gray-500">
-                                            By {{ $story->user->name ?? 'Anonymous' }} • {{ $story->created_at->format('M d, Y') }}
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </section>
-            @endif
+                
+        
 
                 <!-- Secondary Featured Stories -->
                 <div class="space-y-6">
@@ -214,6 +187,7 @@
     <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative">
         <button onclick="toggleStoryModal()" class="absolute top-2 right-2 text-gray-500 hover:text-black text-xl">&times;</button>
         <h2 class="text-xl font-bold mb-4">Add Your Story</h2>
+        
         <form method="POST" action="{{ route('stories.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="mb-4">

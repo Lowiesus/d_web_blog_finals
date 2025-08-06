@@ -28,6 +28,6 @@ class RegisterController extends Controller
             'password' => Hash::make($validated['password']),
         ]);
 
-        return redirect('/login')->with('success', 'Account created! Please log in.');
+        return redirect('login')->with('success', 'Account created! Please log in.');
     }
 }
