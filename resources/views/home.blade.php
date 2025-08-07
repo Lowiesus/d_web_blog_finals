@@ -2,13 +2,6 @@
 
 @section('title', 'LifeCycle - Home')
 
-<script>
-    function toggleStoryModal() {
-        const modal = document.getElementById('storyModal');
-        modal.classList.toggle('hidden');
-    }
-</script>
-
 @section('content')
     <!-- Hero Section -->
     <section class="relative bg-gray-900 text-white">
@@ -46,8 +39,6 @@
             </div>
         @endforeach
     </section>
-@endsection
-
 
     <!-- Featured Section -->
     <section id="featured" class="py-16 bg-white">
@@ -64,7 +55,7 @@
                 <!-- Main Featured Story -->
                 <div class="lg:col-span-2">
                     <article class="relative overflow-hidden rounded-lg bg-white shadow-lg">
-                        <img src="images/photo-1453169753818-2feab4b4246d.avif" 
+                        <img src="{{ asset('images/photo-1453169753818-2feab4b4246d.avif') }}" 
                             alt="Featured Story"
                             class="w-full h-96 object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -86,9 +77,6 @@
                         </div>
                     </article>
                 </div>
-
-                
-        
 
                 <!-- Secondary Featured Stories -->
                 <div class="space-y-6">
@@ -134,50 +122,6 @@
                         </div>
                     </article>
                 </div>
-
-                <div class="space-y-6">
-                    <article class="bg-white rounded-lg shadow-md overflow-hidden h-32">
-                        <div class="flex h-full">
-                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                alt="Story"
-                                class="w-32 h-full object-cover flex-shrink-0">
-                            <div class="p-4 flex flex-col justify-center flex-1">
-                                <div>
-                                    <span class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium mb-1">
-                                        Technology
-                                    </span>
-                                    <h4 class="text-base font-semibold text-gray-900 mb-1 line-clamp-2">
-                                        Smart Gear: The Science Behind Performance
-                                    </h4>
-                                    <p class="text-gray-600 text-sm line-clamp-2">
-                                        Exploring how data revolutionizes athletic performance.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="bg-white rounded-lg shadow-md overflow-hidden h-32">
-                        <div class="flex h-full">
-                            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                alt="Story" 
-                                class="w-32 h-full object-cover flex-shrink-0">
-                            <div class="p-4 flex flex-col justify-center flex-1">
-                                <div>
-                                    <span class="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs font-medium mb-1">
-                                        Culture
-                                    </span>
-                                    <h4 class="text-base font-semibold text-gray-900 mb-1 line-clamp-2">
-                                        Streetwear Meets Performance
-                                    </h4>
-                                    <p class="text-gray-600 text-sm line-clamp-2">
-                                        The intersection of street culture and innovation.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
             </div>
         </div>
     </section>
@@ -200,7 +144,13 @@
             </form>
         </div>
     </section>
-    <!-- Story Modal -->
-
 @endsection
 
+@section('scripts')
+<script>
+    function toggleStoryModal() {
+        const modal = document.getElementById('storyModal');
+        modal.classList.toggle('hidden');
+    }
+</script>
+@endsection
