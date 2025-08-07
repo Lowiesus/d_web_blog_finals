@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Featured')
+@section('title', 'LifeCycle - Featured')
 @section('content')
 
 <div class="bg-gray-100 min-h-screen py-12">

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Nike Stories - Home')
+@section('title', 'LifeCycle - Home')
 
 <script>
     function toggleStoryModal() {
@@ -201,40 +201,6 @@
         </div>
     </section>
     <!-- Story Modal -->
-<div id="storyModal" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
-    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative">
-        <button onclick="toggleStoryModal()" class="absolute top-2 right-2 text-gray-500 hover:text-black text-xl">&times;</button>
-        <h2 class="text-xl font-bold mb-4">Add Your Story</h2>
-        
-        <form method="POST" action="{{ route('stories.store') }}" enctype="multipart/form-data">
-    @csrf
-    <div class="mb-4">
-        <label class="block font-semibold mb-1" for="title">Title</label>
-        <input type="text" id="title" name="title" class="w-full border border-gray-300 rounded px-3 py-2" required>
-    </div>
 
-    <div class="mb-4">
-        <label class="block font-semibold mb-1" for="content">Your Story</label>
-        <textarea id="content" name="content" rows="5" class="w-full border border-gray-300 rounded px-3 py-2" required></textarea>
-    </div>
-
-    <div class="mb-4">
-        <label class="block font-semibold mb-1" for="image">Upload Image (optional)</label>
-        <input type="file" id="image" name="image" accept="image/*" class="w-full border border-gray-300 rounded px-3 py-2">
-    </div>
-
-    <button type="submit" class="bg-black text-white px-6 py-2 rounded hover:bg-gray-800">
-        Submit Story
-    </button>
-</form>
-    </div>
-</div>
 @endsection
 
-@auth
-    <div class="fixed bottom-6 right-6">
-        <button onclick="toggleStoryModal()" class="bg-black text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-800 transition-all shadow-lg">
-            + Add Your Story
-        </button>
-    </div>
-@endauth
