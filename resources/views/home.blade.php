@@ -24,21 +24,7 @@
     </section>
 
     <!-- Story Section with Like Button -->
-    <section class="max-w-5xl mx-auto px-4 py-12">
-        @foreach($stories as $story)
-            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
-                <h2 class="text-2xl font-bold mb-2">{{ $story->title }}</h2>
-                <p class="text-gray-700 mb-4">{{ $story->content }}</p>
-
-                <form action="{{ route('stories.like', $story->id) }}" method="POST">
-                    @csrf
-                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
-                        ❤️ Like ({{ $story->likes }})
-                    </button>
-                </form>
-            </div>
-        @endforeach
-    </section>
+    
 
     <!-- Featured Section -->
     <section id="featured" class="py-16 bg-white">
@@ -55,7 +41,7 @@
                 <!-- Main Featured Story -->
                 <div class="lg:col-span-2">
                     <article class="relative overflow-hidden rounded-lg bg-white shadow-lg">
-                        <img src="{{ asset('images/photo-1453169753818-2feab4b4246d.avif') }}" 
+                        <img src="{{ asset('images/photo-1453169753818-2feab4b4246d.avif') }}"
                             alt="Featured Story"
                             class="w-full h-96 object-cover">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -67,7 +53,7 @@
                                 The Future of Sustainable Athletic Wear
                             </h3>
                             <p class="text-gray-200 mb-4">
-                                Discover how Nike is pioneering eco-friendly materials and manufacturing processes to create performance gear that doesn't compromise on quality or the environment.
+                                Discover how LifeCycle is pioneering eco-friendly materials and manufacturing processes to create performance gear that doesn't compromise on quality or the environment.
                             </p>
                             <a href="#" class="inline-flex items-center text-white hover:text-gray-300">
                                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

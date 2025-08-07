@@ -5,59 +5,36 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\StoryController;
-use App\Models\Story;
 
+// Homepage: Load from controller with stories
+Route::get('/', [StoryController::class, 'index'])->name('home');
 
-Route::get('/', function () {
-    return view('home');
-});
-
+// Login
 Route::get('/login', function () {
-    if (Auth::check()) {
-        return redirect('/home');
-    }
-    return view('login');
+    return Auth::check() ? redirect('/home') : view('login');
 });
-
-Route::get('/stories/{story_id}', [StoryController::class, 'show'])->name('stories.show');
-
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::get('/signup', function () {
-    if (Auth::check()) {
-        return redirect('/');
-    }
-    return view('signup');
-});
-Route::get('/signup', function (){
-    return view('signup');
-});
-
+// Signup
 Route::get('/signup', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/signup', [RegisterController::class, 'signup'])->name('signup');
 
+// Logout
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/featured', [StoryController::class, 'featured'])->name('featured');
+// View a story
+Route::get('/stories/{story_id}', [StoryController::class, 'show'])->name('stories.show');
 
-Route::get('/products/top', function () {
-    // You can return a view or placeholder for now
-    return view('home'); // or create a separate products_top.blade.php if you want
-})->name('products.top');
-
-Route::middleware(['web'])->group(function () {
-    Route::post('/signup', [RegisterController::class, 'signup']);
-});
-
+// Store a new story (authenticated users only)
 Route::post('/', [StoryController::class, 'store'])->name('stories.store')->middleware('auth');
 
+// Like a story
 Route::post('/stories/{id}/like', [StoryController::class, 'like'])->name('stories.like');
 
+// Featured stories
+Route::get('/featured', [StoryController::class, 'featured'])->name('featured');
 
-
-Route::get('/', function () {
-    $stories = Story::latest()->with('user')->get();
-    return view('home', compact('stories'));
-});
-
-Route::get('/', [StoryController::class, 'index'])->name('home');
+// Placeholder route
+Route::get('/products/top', function () {
+    return view('home');
+})->name('products.top');
