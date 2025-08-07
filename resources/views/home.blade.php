@@ -28,8 +28,26 @@
         </div>
         <!-- Hero Background Image -->
         <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ asset('images/photo-1452573992436-6d508f200b30.avif') }}')"></div>
-        <!-- Original Unsplash: https://unsplash.com/photos/two-persons-riding-on-bicycles-SJWPKMb9u-k -->
     </section>
+
+    <!-- Story Section with Like Button -->
+    <section class="max-w-5xl mx-auto px-4 py-12">
+        @foreach($stories as $story)
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-2xl font-bold mb-2">{{ $story->title }}</h2>
+                <p class="text-gray-700 mb-4">{{ $story->content }}</p>
+
+                <form action="{{ route('stories.like', $story->id) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">
+                        ❤️ Like ({{ $story->likes }})
+                    </button>
+                </form>
+            </div>
+        @endforeach
+    </section>
+@endsection
+
 
     <!-- Featured Section -->
     <section id="featured" class="py-16 bg-white">

@@ -51,6 +51,9 @@ Route::middleware(['web'])->group(function () {
 
 Route::post('/', [StoryController::class, 'store'])->name('stories.store')->middleware('auth');
 
+Route::post('/stories/{id}/like', [StoryController::class, 'like'])->name('stories.like');
+
+
 
 Route::get('/', function () {
     $stories = Story::latest()->with('user')->get();

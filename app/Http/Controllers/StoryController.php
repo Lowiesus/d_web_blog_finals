@@ -41,6 +41,15 @@ class StoryController extends Controller
         return view('featured', compact('stories'));
     }
 
+    public function like($id)
+{
+    $story = Story::findOrFail($id);
+    $story->likes += 1;
+    $story->save();
+
+    return redirect()->back()->with('success', 'You liked the story!');
+}
+
     public function show($story_id)
     {
         $story = \App\Models\Story::with('user')->where('story_id', $story_id)->firstOrFail();
